@@ -1,7 +1,11 @@
+import BookShow from "./BookShow"
 
+function BookList({books}){
 
-function BookList(){
-    return <div> BookList</div>;
+    const rederedBooks = books.map((book)=> {
+ return <BookShow key={book.id} book={book}/>;
+    });
+    return <div className="book-list"> {rederedBooks}</div>;
 }
 
 export default BookList;

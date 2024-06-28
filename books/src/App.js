@@ -17,10 +17,13 @@ function App (){
 
     };
 
-    return <div>
-        <BookList/>    
+    return (
+        <div className="app">
+        <BookList books={books}/>    
         <BookCreate onCreate={handleCreateBook}/>
-    </div>;
+    </div>
+    );
+        
 }
 
 export default App;
