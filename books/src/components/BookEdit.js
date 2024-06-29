@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function BookEdit({book}){
+function BookEdit({book, onSubmit}){
 
     const [title, setTitle]=useState(book.title);
 
@@ -9,10 +9,10 @@ function BookEdit({book}){
         setTitle(event.target.value);
 
     };
+   
     const handleSubmit =(event)=>{
          event.preventDefault();
-
-         console.log('new titlle ', title);
+        onSubmit(book.id, title);
     };
 
     return <form onSubmit={handleSubmit} className="book-edit">
@@ -20,9 +20,9 @@ function BookEdit({book}){
         <input className="input" value={title} onChange={handleChange}/>
         <button className="button is-primary" >
             save
-        </button>;
+        </button>
 
-    </form>;
+    </form>
 };
 
 export default BookEdit;
