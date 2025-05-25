@@ -2,6 +2,7 @@ import { useState } from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
 import BookShow from "./components/BookShow";
+import axios from "axios";
 
 function App (){
 
@@ -28,16 +29,20 @@ function App (){
 
 
 
-    const handleCreateBook = (title)=> {
-       const updatedBooks=[
-        ...books, 
-        {
-            id:Math.round(Math.random()*9999), 
-            title:title
-        }
-        ];
-        setBooks(updatedBooks);
+    const handleCreateBook = async (title) => {
+      const response = await axios.post("http://localhost:3000/books", {
+        title
+      });
+      console.log(response); 
 
+      // const updatedBooks=[
+      //   ...books,
+      //   {
+      //      id:Math.round(Math.random()*9999),
+      ////       title:title
+      //   }
+      //  ];
+      // setBooks(updatedBooks);
     };
 
     return (
