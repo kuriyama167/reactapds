@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState,} from "react";
 import axios from "axios";
 
 
@@ -50,7 +50,15 @@ function Provider({ children }) {
   };
 
 
-  return <BooksContext.Provider value={q}>{children}</BooksContext.Provider>;
+  const ValueToShare = {
+    books,
+    deleteBookById,
+    editBookId,
+    handleCreateBook,
+    fetchBooks,
+  };
+
+  return <BooksContext.Provider value={{ValueToShare}}>{children}</BooksContext.Provider>;
 }
 
 export { Provider };

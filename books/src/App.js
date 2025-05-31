@@ -1,7 +1,6 @@
 import {useEffect, useContext} from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
-import BookShow from "./components/BookShow";
 import BooksContext from "./context/book";
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
 
  useEffect(() => {
     fetchBooks();
-  }, []);
+  }, [fetchBooks]);
 
 
  
